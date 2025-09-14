@@ -1,6 +1,6 @@
 import { getToken, clearToken } from "./auth";
 
-const API = import.meta.env.VITE_API_URL as string;
+const API = (import.meta.env.VITE_API_URL as string) || "/api";
 
 export async function apiFetch(path: string, init: RequestInit = {}) {
   const headers = new Headers(init.headers || {});
