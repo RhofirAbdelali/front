@@ -1,5 +1,5 @@
-import { ReactNode, useEffect } from "react";
-
+import { useEffect } from "react";
+import type { ReactNode } from "react";
 type Props = {
   open: boolean;
   title?: string;

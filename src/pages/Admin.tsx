@@ -720,7 +720,7 @@ function primaryBtn(theme:any): React.CSSProperties {
 function ghostBtn(theme:any): React.CSSProperties {
   return { padding:"8px 10px", borderRadius:10, border:`1px solid ${theme.border}`, background:"#fff" };
 }
-function successBtn(theme:any): React.CSSProperties {
+function successBtn(_theme:any): React.CSSProperties {
   return { padding:"6px 10px", borderRadius:8, border:"none", background:"#10b981", color:"#fff" };
 }
 function dangerBtn(): React.CSSProperties {
@@ -738,13 +738,13 @@ function tableHead(theme:any, cols:string): React.CSSProperties {
 function tableRow(cols:string): React.CSSProperties {
   return { display:"grid", gridTemplateColumns: cols, padding:"10px 12px", borderTop:"1px solid #f1f5f9", alignItems:"center" };
 }
-function badge(text:string, active:boolean, theme:any): React.CSSProperties {
+function badge(_text:string, active:boolean, _theme:any): React.CSSProperties {
   return {
     display:"inline-flex", alignItems:"center", gap:6, padding:"2px 8px",
     borderRadius:999, fontSize:12,
     background: active ? "#ecfeff" : "#f3f4f6",
-    color: active ? "#0e7490" : theme.subtle,
-    border:`1px solid ${theme.border}`
+    color: active ? "#0e7490" : _theme.subtle,
+    border:`1px solid ${_theme.border}`
   } as any;
 }
 function card(theme:any): React.CSSProperties {
@@ -794,7 +794,7 @@ function LineMini({labels, data, max, theme}:{labels:string[]; data:number[]; ma
 
 /* Donut chart */
 function Donut({data, total, theme}:{data:[string,number][], total:number, theme:any}) {
-  const size = 140; const r = 54; const cx = 75; const cy = 75;
+  const r = 54; const cx = 75; const cy = 75;
   const circ = 2 * Math.PI * r;
   const palette = [theme.primary500, "#fb7185", "#60a5fa", "#10b981", "#f59e0b", "#a78bfa"];
   let offset = 0;
@@ -802,7 +802,7 @@ function Donut({data, total, theme}:{data:[string,number][], total:number, theme
     <div style={{display:"grid", gridTemplateColumns:"160px 1fr", gap:8, alignItems:"center", padding:"8px 12px"}}>
       <svg width={150} height={150}>
         <circle cx={cx} cy={cy} r={r} fill="none" stroke="#f3f4f6" strokeWidth={14}/>
-        {data.map(([label, val], i) => {
+        {data.map(([_label, val], i) => {
           const frac = val / total;
           const len = circ * frac;
           const dash = `${len} ${circ-len}`;
@@ -820,14 +820,14 @@ function Donut({data, total, theme}:{data:[string,number][], total:number, theme
         })}
       </svg>
       <div style={{display:"grid", gap:6}}>
-        {data.map(([label, val], i)=>(
+        {data.map(([_label, val], i)=>(
           <div key={i} style={{display:"flex", alignItems:"center", gap:8, fontSize:12}}>
             <span style={{width:10,height:10, borderRadius:2, background:["#fff", ...Array(6)].map((_,k)=>k)[0] ? undefined : undefined,
               backgroundColor: ["#fff",
                 "#fb7185","#60a5fa","#10b981","#f59e0b","#a78bfa"
               ][0]}}/>
             <div style={{width:10, height:10, borderRadius:2, background: ["", theme.primary500, "#fb7185", "#60a5fa", "#10b981", "#f59e0b", "#a78bfa"][i+1] }}/>
-            <div style={{flex:1}}>{label}</div>
+            <div style={{flex:1}}>{_label}</div>
             <div style={{fontWeight:700}}>{val}</div>
           </div>
         ))}

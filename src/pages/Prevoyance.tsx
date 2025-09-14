@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import type { ReactElement } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Modal from "../components/Modal";
 
@@ -7,7 +8,7 @@ type Product = {
   name: string;
   desc: string;
   bullets: string[];
-  icon: JSX.Element;
+  icon: ReactElement;
 };
 
 export default function Prevoyance() {
