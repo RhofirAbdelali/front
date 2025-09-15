@@ -1,5 +1,6 @@
 {
   "rewrites": [
-    { "source": "/api/:path*", "destination": "https://violent-hollie-selfassurance-73972505.koyeb.app/:path*" }
+    { "source": "/api/:path*", "destination": "https://violent-hollie-selfassurance-73972505.koyeb.app/:path*" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
