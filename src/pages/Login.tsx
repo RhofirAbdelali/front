@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { setToken } from "../lib/auth";
 
 const COLORS = {
@@ -56,11 +57,14 @@ export default function Login() {
       <div style={{ width: "100%", maxWidth: 480 }}>
         {/* Logo */}
         <div style={{ display: "flex", justifyContent: "center", marginBottom: 24 }}>
-          <img
-            src="https://assurance-animaux.selfassurance.fr/devis/application/views/assets/media/selfassurancelogo.svg"
-            alt="Selfassurance"
-            style={{ height: 48 }}
-          />
+          <Link to="/" aria-label="Retour à l’accueil" style={{ display: "inline-block" }}>
+            <img
+              src="https://assurance-animaux.selfassurance.fr/devis/application/views/assets/media/selfassurancelogo.svg"
+              alt="Selfassurance"
+              style={{ height: 48, cursor: "pointer" }}
+              title="Retour à l’accueil"
+            />
+          </Link>
         </div>
 
         {/* Card */}
